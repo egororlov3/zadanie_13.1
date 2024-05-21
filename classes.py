@@ -26,7 +26,7 @@ class Category:
         """Выводит список товаров"""
         product_list = ""
         for product in self.__products:
-            product_list += f"{Product.name}, {Product.price} руб. остаток:{Product.quantity} шт."
+            product_list += f"{product.name}, {product.price} руб. остаток:{product.quantity} шт."
         return product_list
 
 
@@ -60,3 +60,6 @@ class Product:
             print('Цена введена некорректная')
         else:
             self.__price = new_price
+
+
+
