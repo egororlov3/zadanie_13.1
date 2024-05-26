@@ -4,7 +4,7 @@ from classes import Product
 
 
 @pytest.fixture
-def goods(product1,product2):
+def goods(product1, product2):
     return Category("sneakers", "new",
                     [product1, product2])
 
@@ -39,5 +39,7 @@ def test_init_products2(product2):
     assert product2.description == "Airmax 95 Black"
     assert product2.price == 10000
     assert product2.quantity == 10
+
+
 
 
