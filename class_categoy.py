@@ -1,3 +1,6 @@
+from class_product import Product
+
+
 class Category:
     """ Класс для предоставления товара в магазине"""
 
@@ -25,9 +28,10 @@ class Category:
         """Подсчитывает количество всез продуктов в одной категории"""
         return sum(product.quantity for product in self.__products)
 
-    def products(self, product):
+    def add_products(self, product):
         """Принимает товар и добавляет его в список"""
-        return self.__products.append(product)
+        if isinstance(product, Product):
+            return self.__products.append(product)
 
     @property
     def return_products(self):
@@ -36,4 +40,3 @@ class Category:
         for product in self.__products:
             product_list += f"{product.name}, {product.price} руб. остаток:{product.quantity} шт."
         return product_list
-

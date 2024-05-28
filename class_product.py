@@ -30,8 +30,8 @@ class Product:
             raise TypeError
 
     @classmethod
-    def new_product(cls, name, description, price, quantity):
-        return cls(name, description, price, quantity)
+    def new_product(cls, name, description, color, price, quantity):
+        return cls(name, description, color, price, quantity)
 
     @property
     def price(self):
