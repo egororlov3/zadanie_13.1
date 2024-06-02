@@ -1,4 +1,17 @@
-class Product:
+from abc import abstractmethod, ABC
+from mixin_classes import MixinProd
+
+
+class Item(ABC):
+    """Основной абстрактный класс"""
+
+    @abstractmethod
+    def new_product(self, *args, **kwargs):
+        """Добавление новых продуктов"""
+        pass
+
+
+class Product(Item, MixinProd):
     """Класс для предоставления кол-во в наличии и цены"""
 
     def __init__(self, name: str, description: str, color: str, price: float, quantity: int) -> None:
@@ -15,6 +28,7 @@ class Product:
         self.color = color
         self.__price = price
         self.quantity = quantity
+        print(super().__repr__)
 
     def __str__(self):
         """Выводит новое строковое отображение"""
@@ -60,6 +74,7 @@ class Smartphone(Product):
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
+        print(super().__repr__)
 
 
 class Grass(Product):
@@ -75,6 +90,3 @@ class Grass(Product):
         super().__init__(name, description, color, price, quantity)
         self.maker = maker
         self.germination = germination
-
-
-
