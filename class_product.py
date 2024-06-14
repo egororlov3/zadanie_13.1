@@ -44,8 +44,8 @@ class Product(Item, MixinProd):
             raise TypeError
 
     @classmethod
-    def new_product(cls, product_base: dict):
-        return cls(**product_base)
+    def new_product(cls, name, description, color, price, quantity):
+        return cls(name, description, color, price, quantity)
 
     @property
     def price(self):
@@ -62,8 +62,8 @@ class Product(Item, MixinProd):
 class Smartphone(Product):
     """Класс для смартфонов (дочерний от Product)"""
 
-    def __init__(self, name: str, description: str, color:
-    str, price: float, quantity: int, efficiency: str, model: str, memory: str):
+    def __init__(self, name: str, description: str, color: str,
+                 price: float, quantity: int, efficiency: str, model: str, memory: str):
         """Создание экземпляра класса Smartphone
 
                     :param efficiency: производительность
@@ -76,12 +76,16 @@ class Smartphone(Product):
         self.memory = memory
         print(super().__repr__)
 
+    @classmethod
+    def new_smartphone(cls, name, description, color, price, quantity, efficiency, model, memory):
+        return cls(name, description, color, price, quantity, efficiency, model, memory)
+
 
 class Grass(Product):
     """Класс для газонов (дочерний от Product)"""
 
-    def __init__(self, name: str, description: str, color:
-    str, price: float, quantity: int, maker: str, germination: str):
+    def __init__(self, name: str, description: str, color: str,
+                 price: float, quantity: int, maker: str, germination: str):
         """Создание экземпляра класса Smartphone
 
                     :param maker: страна-производитель
@@ -90,3 +94,7 @@ class Grass(Product):
         super().__init__(name, description, color, price, quantity)
         self.maker = maker
         self.germination = germination
+
+    @classmethod
+    def new_grass(cls, name, description, color, price, quantity, maker, germination):
+        return cls(name, description, color, price, quantity, maker, germination)
