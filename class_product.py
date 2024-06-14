@@ -44,8 +44,8 @@ class Product(Item, MixinProd):
             raise TypeError
 
     @classmethod
-    def new_product(cls, name, description, color, price, quantity):
-        return cls(name, description, color, price, quantity)
+    def new_product(cls, product_base: dict):
+        return cls(**product_base)
 
     @property
     def price(self):
