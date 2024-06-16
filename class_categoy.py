@@ -40,3 +40,12 @@ class Category:
         for product in self.__products:
             product_list += f"{product.name}, {product.price} руб. остаток:{product.quantity} шт."
         return product_list
+
+    def mean_price_of_products(self):
+        try:
+            total = sum(product.price for product in self.__products)
+            mean_price = total / len(self.__products)
+        except ZeroDivisionError:
+            return 0
+        return mean_price
+
