@@ -44,8 +44,8 @@ class Product(Item, MixinProd):
             raise TypeError
 
     @classmethod
-    def new_product(cls, name, description, color, price, quantity):
-        return cls(name, description, color, price, quantity)
+    def new_product(cls, products: dict):
+        return cls(**products)
 
     @property
     def price(self):
@@ -77,8 +77,8 @@ class Smartphone(Product):
         print(super().__repr__)
 
     @classmethod
-    def new_smartphone(cls, name, description, color, price, quantity, efficiency, model, memory):
-        return cls(name, description, color, price, quantity, efficiency, model, memory)
+    def new_product(cls, products: dict):
+        return cls(**products)
 
 
 class Grass(Product):
@@ -96,5 +96,5 @@ class Grass(Product):
         self.germination = germination
 
     @classmethod
-    def new_grass(cls, name, description, color, price, quantity, maker, germination):
-        return cls(name, description, color, price, quantity, maker, germination)
+    def new_product(cls, products: dict):
+        return cls(**products)
