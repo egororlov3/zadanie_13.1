@@ -44,8 +44,11 @@ class Product(Item, MixinProd):
             raise TypeError
 
     @classmethod
-    def new_product(cls, products: dict):
-        return cls(**products)
+    def new_product(cls, products: dict, quantity):
+        if quantity == 0:
+            raise ValueError("товар с нулевым количеством не может быть добавлен")
+        else:
+            return cls(**products)
 
     @property
     def price(self):
@@ -77,8 +80,11 @@ class Smartphone(Product):
         print(super().__repr__)
 
     @classmethod
-    def new_product(cls, products: dict):
-        return cls(**products)
+    def new_product(cls, products: dict, quantity):
+        if quantity == 0:
+            raise ValueError("товар с нулевым количеством не может быть добавлен")
+        else:
+            return cls(**products)
 
 
 class Grass(Product):
@@ -96,5 +102,8 @@ class Grass(Product):
         self.germination = germination
 
     @classmethod
-    def new_product(cls, products: dict):
-        return cls(**products)
+    def new_product(cls, products: dict, quantity):
+        if quantity == 0:
+            raise ValueError("товар с нулевым количеством не может быть добавлен")
+        else:
+            return cls(**products)
