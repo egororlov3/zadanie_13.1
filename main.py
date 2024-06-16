@@ -11,3 +11,4 @@ gr1 = Grass("grass", "outdoor", "green", 100, 10, "Russia", "1m")
 prod1 = Product("apple", "new", "green", 50, 100)
 print(sp1)
 
+
